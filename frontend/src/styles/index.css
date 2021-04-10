@@ -1,0 +1,124 @@
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --bg0: #181818;
+  --bg1: #202020;
+  --bg2: #242424;
+  --bg3: #282828;
+
+  --prim0: #612bc7;
+  --prim1: #7f48e5;
+
+  --op0: 1;
+  --op1: 0.8;
+  --op2: 0.6;
+  --op3: 0.4;
+}
+
+body {
+  background-color: var(--bg1);
+  color: white;
+  font-family: "Open Sans", sans-serif;
+  font-size: 18px;
+  margin: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  display: block;
+  font-size: inherit;
+  padding: 0.5em 1em;
+  background-color: var(--prim1);
+  color: inherit;
+  font-weight: bold;
+  outline: none;
+  border: none;
+  border-radius: 3px;
+}
+
+button:hover {
+  background-color: var(--prim0);
+}
+
+button.small {
+  font-size: 0.7em;
+}
+
+input,
+textarea {
+  display: block;
+  width: 100%;
+  font-size: inherit;
+  font-family: inherit;
+  padding: 0.8em;
+  margin-bottom: 1em;
+  background-color: var(--bg0);
+  color: inherit;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+}
+
+input[type="file"] {
+  display: none;
+}
+
+label.file {
+  width: 100%;
+  display: block;
+  padding: 0.8em;
+  background-color: var(--bg0);
+  margin-bottom: 1em;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+}
+
+ul.tiles {
+  list-style: none;
+  padding-left: 0;
+  margin-top: 0;
+}
+
+p.small {
+  font-size: 0.8em;
+  opacity: var(--op1);
+}
+
+select {
+  font-size: inherit;
+  background-color: var(--bg0);
+  color: inherit;
+  outline: none;
+  border-radius: 5px;
+  border: none;
+  padding: 0.5em;
+  width: 100%;
+  margin-bottom: 1em;
+}
+
+.page {
+  padding: 2em;
+}
+
+form {
+  padding: 1em 0;
+}
+
+.nouser {
+  max-width: 30%;
+}

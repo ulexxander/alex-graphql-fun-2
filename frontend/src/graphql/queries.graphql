@@ -1,0 +1,13 @@
+query Me {
+  me {
+    username
+    subscribers {
+      userID
+      username
+    }
+    subscribtions {
+      userID
+      username
+    }
+  }
+}
