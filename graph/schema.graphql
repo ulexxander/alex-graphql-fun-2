@@ -1,0 +1,83 @@
+directive @auth on FIELD_DEFINITION
+
+directive @len(min: Int, max: Int) on INPUT_FIELD_DEFINITION
+
+scalar Time
+
+type User {
+  userID: ID!
+  username: String!
+  subscribers: [User!]!
+  subscribtions: [User!]!
+  dateCreated: Time!
+}
+
+type Post {
+  postID: ID!
+  userID: ID!
+  title: String!
+  body: String!
+  creator: User!
+  comments: [Comment!]!
+  dateCreated: Time!
+}
+
+type Subscribtion {
+  subscriberID: ID!
+  bloggerID: ID!
+}
+
+type Comment {
+  commentID: ID!
+  postID: ID!
+  userID: ID!
+  creator: User!
+  content: String!
+  dateCreated: Time!
+}
+
+type Query {
+  me: User
+  allUsers: [User!]!
+  allPosts: [Post!]!
+  allComments: [Comment!]!
+  allSubscribtions: [Subscribtion!]!
+}
+
+type Mutation {
+  createUser(input: CreateUserInput): User!
+  createPost(input: CreatePostInput): Post! @auth
+  createComment(input: CreateCommentInput): Comment! @auth
+  createSubscribtion(input: CreateSubscribtionInput): Subscribtion @auth
+
+  deletePost(postID: ID!): Post! @auth
+  deleteComment(commentID: ID!): Comment! @auth
+  deleteSubscribtion(bloggerID: ID!): Subscribtion! @auth
+
+  loginToken(input: LoginTokenInput): String!
+  logout: User! @auth
+}
+
+input LoginTokenInput {
+  username: String!
+  password: String!
+}
+
+input CreateUserInput {
+  username: String! @len(min: 1, max: 32)
+  password: String! @len(min: 3, max: 256)
+}
+
+input CreatePostInput {
+  title: String! @len(min: 5, max: 64)
+  body: String! @len(min: 1)
+}
+
+input CreateCommentInput {
+  postID: ID!
+  content: String! @len(min: 1)
+}
+
+input CreateSubscribtionInput {
+  bloggerID: ID!
+}
