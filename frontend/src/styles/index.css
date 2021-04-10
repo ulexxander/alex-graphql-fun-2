@@ -85,7 +85,7 @@ h3,
 h4,
 h5,
 h6 {
-  margin: 0;
+  margin-top: 0;
 }
 
 ul.tiles {
@@ -121,4 +121,29 @@ form {
 
 .nouser {
   max-width: 30%;
+}
+
+.username {
+  color: #ee6ba2;
+  font-weight: bold;
+  font-size: 1.1em;
+}
+
+.home-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2em;
+}
+
+.post-comments {
+  margin-left: 1em;
+}
+
+.new-post-comment {
+  max-width: 15em;
+}
+
+.inline {
+  display: inline-block;
+  margin-left: 0.5em;
 }

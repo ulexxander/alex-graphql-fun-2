@@ -26,7 +26,19 @@ const authLink = setContext((_, { headers }) => {
 
 const gqlClient = new ApolloClient({
   link: authLink.concat(httpLink),
-  cache: new InMemoryCache(),
+  cache: new InMemoryCache({
+    typePolicies: {
+      Comment: {
+        keyFields: ["commentID"],
+      },
+      Post: {
+        keyFields: ["postID"],
+      },
+      User: {
+        keyFields: ["userID"],
+      },
+    },
+  }),
 });
 
 ReactDOM.render(

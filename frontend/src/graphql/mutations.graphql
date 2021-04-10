@@ -1,9 +1,43 @@
 mutation CreateUser($username: String!, $password: String!) {
   createUser(input: { username: $username, password: $password }) {
+    userID
     username
   }
 }
 
 mutation LoginToken($username: String!, $password: String!) {
   loginToken(input: { username: $username, password: $password })
+}
+
+mutation Logout {
+  logout {
+    userID
+    username
+  }
+}
+
+mutation CreateComment($postID: ID!, $content: String!) {
+  createComment(input: { postID: $postID, content: $content }) {
+    commentID
+  }
+}
+
+mutation CreatePost($title: String!, $body: String!) {
+  createPost(input: { title: $title, body: $body }) {
+    postID
+  }
+}
+
+mutation CreateSubscribtion($bloggerID: ID!) {
+  createSubscribtion(input: { bloggerID: $bloggerID }) {
+    subscriberID
+    bloggerID
+  }
+}
+
+mutation DeleteSubscribtion($bloggerID: ID!) {
+  deleteSubscribtion(bloggerID: $bloggerID) {
+    subscriberID
+    bloggerID
+  }
 }

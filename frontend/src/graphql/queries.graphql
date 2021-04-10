@@ -1,5 +1,6 @@
 query Me {
   me {
+    userID
     username
     subscribers {
       userID
@@ -8,6 +9,35 @@ query Me {
     subscribtions {
       userID
       username
+    }
+  }
+}
+
+query AllUsers {
+  allUsers {
+    userID
+    username
+    dateCreated
+  }
+}
+
+query AllPosts {
+  allPosts {
+    postID
+    title
+    body
+    creator {
+      userID
+      username
+    }
+    comments {
+      commentID
+      content
+      dateCreated
+      creator {
+        userID
+        username
+      }
     }
   }
 }
